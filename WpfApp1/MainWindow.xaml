@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Varentsova Julia" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="143*"/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+
+        <Label x:Name="IntegralLabel" Content="∫" HorizontalAlignment="Left" Margin="37,53,0,0" VerticalAlignment="Top" FontSize="64" Height="98" Width="44" RenderTransformOrigin="0.602,0.444" Grid.Column="2" Grid.Row="4"/>
+        <TextBox x:Name="UpperLimitEditBox" HorizontalAlignment="Left" Height="20" Margin="50,50,0,0" TextWrapping="Wrap" Text="100000" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.414,0.674" Grid.Column="2" Grid.Row="4"/>
+        <TextBox x:Name="LowerLimitEditBox" HorizontalAlignment="Left" Height="20" Margin="50,150,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="50" Grid.Column="2" Grid.Row="4" RenderTransformOrigin="-0.257,-1.359"/>
+        <TextBox x:Name="FunctionEditBox" HorizontalAlignment="Left" Height="18" Margin="85,102,0,0" TextWrapping="Wrap" Text="2x-ln(2x)+234" VerticalAlignment="Top" Width="90" IsEnabled="False" Grid.Column="2" Grid.Row="4"/>
+        <Button x:Name="btCalculate" Background="Khaki" Content="Рассчёт интеграла" Grid.Column="2" Grid.Row="4" Click="btCalculate_Click" Margin="222,133,357,217"/>
+        <Button x:Name="btGraf" Background="MistyRose" Content="Рассчёт графика"  Grid.Column="2" Grid.Row="4" Click="btCalculate_Click" Margin="222,53,357,297"/>
+        <ComboBox x:Name="ModeComboBox" Text="Выберите метод"  HorizontalAlignment="Left" Margin="46,212,0,0" VerticalAlignment="Top" Width="168" Height="23" Grid.Column="2" Grid.Row="4">
+            <ComboBoxItem Content="Выберите метод" IsSelected="True"/>
+            <ComboBoxItem Content="Метод средних прямоугольников"/>
+            <ComboBoxItem Content="Метод трапеции" />
+            <ComboBoxItem Content="Метод Симпсона"/>
+        </ComboBox>
+    </Grid>
+</Window>
