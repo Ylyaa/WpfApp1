@@ -3,15 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:WpfApp1" xmlns:oxy="http://oxyplot.org/wpf"
         mc:Ignorable="d"
         Title="Varentsova Julia" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#9d81ba">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="143*"/>
-            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="auto" MinWidth="198"/>
+            <ColumnDefinition Width="525*"/>
+            <ColumnDefinition Width="37*"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -24,18 +24,38 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
+        <TextBlock
+            Text="Количество разбиений"
+            Grid.Column="1"
+            Grid.Row="1"
+            FontSize="12"
+            FontWeight="Bold"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center" Height="16" Width="134"/>
 
-        <Label x:Name="IntegralLabel" Content="∫" HorizontalAlignment="Left" Margin="37,53,0,0" VerticalAlignment="Top" FontSize="64" Height="98" Width="44" RenderTransformOrigin="0.602,0.444" Grid.Column="2" Grid.Row="4"/>
-        <TextBox x:Name="UpperLimitEditBox" HorizontalAlignment="Left" Height="20" Margin="50,50,0,0" TextWrapping="Wrap" Text="100000" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.414,0.674" Grid.Column="2" Grid.Row="4"/>
-        <TextBox x:Name="LowerLimitEditBox" HorizontalAlignment="Left" Height="20" Margin="50,150,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="50" Grid.Column="2" Grid.Row="4" RenderTransformOrigin="-0.257,-1.359"/>
-        <TextBox x:Name="FunctionEditBox" HorizontalAlignment="Left" Height="18" Margin="85,102,0,0" TextWrapping="Wrap" Text="2x-ln(2x)+234" VerticalAlignment="Top" Width="90" IsEnabled="False" Grid.Column="2" Grid.Row="4"/>
-        <Button x:Name="btCalculate" Background="Khaki" Content="Рассчёт интеграла" Grid.Column="2" Grid.Row="4" Click="btCalculate_Click" Margin="222,133,357,217"/>
-        <Button x:Name="btGraf" Background="MistyRose" Content="Рассчёт графика"  Grid.Column="2" Grid.Row="4" Click="btCalculate_Click" Margin="222,53,357,297"/>
-        <ComboBox x:Name="ModeComboBox" Text="Выберите метод"  HorizontalAlignment="Left" Margin="46,212,0,0" VerticalAlignment="Top" Width="168" Height="23" Grid.Column="2" Grid.Row="4">
-            <ComboBoxItem Content="Выберите метод" IsSelected="True"/>
-            <ComboBoxItem Content="Метод средних прямоугольников"/>
+        <TextBox
+            Grid.Column="2"
+            Grid.Row="1"
+            Grid.ColumnSpan="1"
+            Margin="10,0,10,0"
+            VerticalAlignment="Center"
+            x:Name="splitCount" Height="18"/>
+        <Label x:Name="IntegralLabel" Content="∫" HorizontalAlignment="Left" Margin="0,37,0,0" VerticalAlignment="Top" FontSize="64" Height="98" Width="44" RenderTransformOrigin="0.602,0.444" Grid.Column="1" Grid.Row="4"/>
+        <TextBox x:Name="UpperLimitEditBox" HorizontalAlignment="Left" Height="20" Margin="23,37,0,0" TextWrapping="Wrap" Text="100000" VerticalAlignment="Top" Width="50" RenderTransformOrigin="-0.414,0.674" Grid.Column="1" Grid.Row="4"/>
+        <TextBox x:Name="LowerLimitEditBox" HorizontalAlignment="Left" Height="20" Margin="20,135,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="50" Grid.Column="1" Grid.Row="4" RenderTransformOrigin="-0.257,-1.359"/>
+        <TextBox x:Name="FunctionEditBox" HorizontalAlignment="Left" Height="18" Margin="36,86,0,0" TextWrapping="Wrap" Text="2x-ln(2x)+234" VerticalAlignment="Top" Width="90" IsEnabled="False" Grid.Column="1" Grid.Row="4"/>
+        <Button x:Name="btCalculate" Background="LightCoral" Content="Рассчёт интеграла" Grid.Column="1" Grid.Row="4" Click="btCalculate_Click" Margin="10,236,10,83"/>
+        <Button x:Name="btGraf" Background="MistyRose" Content="Рассчёт графика"  Grid.Column="1" Grid.Row="4" Click="btGraph_Click" Margin="10,298,10,20" RenderTransformOrigin="0.5,0.5"/>
+        <ComboBox x:Name="METOD" Text="Выберите метод"  HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" Width="178" Height="23" Grid.Row="4" Grid.Column="1">
+            <ComboBoxItem Content="Метод средних прямоугольников" IsSelected="True"/>
             <ComboBoxItem Content="Метод трапеции" />
             <ComboBoxItem Content="Метод Симпсона"/>
         </ComboBox>
+
+        <oxy:PlotView 
+            x:Name="Graph" Grid.Column="2" Grid.Row="2" Grid.RowSpan="3" >
+
+        </oxy:PlotView>
+
     </Grid>
 </Window>
