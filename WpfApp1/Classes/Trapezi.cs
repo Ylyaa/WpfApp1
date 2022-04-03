@@ -1,30 +1,26 @@
-﻿using Integrtals.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace WpfApp1.Classes
 {
-    internal class Trapezi : ICalculator
+    public class Trapezi : ICalculator
     {
-    
+
         public double Calculate(double splitCount, double upLim, double lowLim, Func<double, double> integral, out double time)
         {
-            int N = (int)((upLim - lowLim) / splitCount);
-            double area = 0;
-            for (int i = 0; i < N; i++)
-            {
-                double currentX = lowLim + splitCount * i;
-                area += CalculateFunction(currentX);
-            }
-            area += (CalculateFunction(lowLim) + CalculateFunction(upLim)) / 2;
             time = 0;
-            return splitCount * area;
-        }
+            double h = (upLim - lowLim) / splitCount; if (splitCount < 0) { throw new ArgumentException("count < 0"); }
+            double sum = 0;
 
-        public double CalculateFunction(double x)
-        {
-            return 2 * x - Math.Log(2 * x) + 234;
+            for (int i = 1; i < splitCount; i++)
+            {
+                sum += integral(lowLim + h * i); 
+            }
+            sum += (integral(lowLim) + integral(upLim)) / 2;
+
+
+            return h * sum;
         }
     }
-}
+    }

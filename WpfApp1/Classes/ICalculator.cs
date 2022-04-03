@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Integrtals.Classes
+namespace WpfApp1.Classes
 {
     interface ICalculator
     {
-        double Calculate(double splitCount, double upLim, double lowLim, Func<double, double> integral, out double time);
+      public double Calculate(double splitCount, double upLim, double lowLim, Func<double, double> integral, out double time);
 
     }
 }

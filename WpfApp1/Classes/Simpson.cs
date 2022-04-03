@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace Integrtals.Classes
+namespace WpfApp1.Classes
 {
-    class Simpson : ICalculator
+   public class Simpson : ICalculator
     {
-        double ICalculator.Calculate(double splitCount, double upLim, double lowLim, Func<double, double> integral, out double time)
+     public double Calculate(double splitCount, double upLim, double lowLim, Func<double, double> integral, out double time)
         {
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
