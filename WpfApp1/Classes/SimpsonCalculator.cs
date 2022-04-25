@@ -7,14 +7,14 @@ using System.Diagnostics;
 
 namespace WpfApp1.Classes
 {
-   public class Simpson : ICalculator
+   public class SimpsonCalculator : ICalculator
     {
-     public double Calculate(double splitCount, double upLim, double lowLim, Func<double, double> integral, out double time)
+     public double Calculate(int splitCount, double upLim, double lowLim, Func<double, double> integral, out double time)
         {
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            var h = (upLim - lowLim) / splitCount;
+            var h = (upLim - lowLim) / (double)splitCount;
             var sum1 = 0d;
             var sum2 = 0d;
             for (var k = 1; k <= splitCount; k++)

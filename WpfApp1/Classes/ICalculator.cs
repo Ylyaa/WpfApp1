@@ -8,7 +8,7 @@ namespace WpfApp1.Classes
 {
     interface ICalculator
     {
-      public double Calculate(double splitCount, double upLim, double lowLim, Func<double, double> integral, out double time);
+      public double Calculate(int splitCount, double upLim, double lowLim, Func<double, double> integral, out double time);
 
     }
 }
