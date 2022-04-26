@@ -7,12 +7,12 @@ using System.Diagnostics;
 
 namespace WpfApp1.Classes
 {
-   public class Pryamoyg : ICalculator
+   public class RectCalculator : ICalculator
     {
-        public double Calculate(double splitCount, double upLim, double lowLim, Func<double, double> integral, out double time)
+        public double Calculate(int splitCount, double upLim, double lowLim, Func<double, double> integral, out double time)
         {
             Stopwatch sw = new Stopwatch();
-            double h = (upLim - lowLim) / splitCount;
+            double h = (upLim - lowLim) / (double)splitCount;
             double sum = 0.0;
 
             sw.Start();
@@ -20,11 +20,11 @@ namespace WpfApp1.Classes
             {
                 sum += integral(lowLim + h * i - 0.5 * h);
             }
-
             sw.Stop();
-            TimeSpan t = sw.Elapsed;
 
-            time = 0;
+            TimeSpan t = sw.Elapsed;
+            time = t.TotalMilliseconds;
+
             return h * sum;
         }
     }

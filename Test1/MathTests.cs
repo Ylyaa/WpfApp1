@@ -17,7 +17,7 @@ namespace Tests
             double time;
             double expected = 333333.3333;
             //Act
-            Pryamoyg pryamoygolnikCalculate = new Pryamoyg();
+            RectCalculator pryamoygolnikCalculate = new RectCalculator();
             double result = pryamoygolnikCalculate.Calculate(count, upLim, downLim, integral, out time);
 
             //Assert
@@ -34,7 +34,7 @@ namespace Tests
             int count = -10000;
             double time;
             //Act
-            Trapezi trapez = new Trapezi();
+            TrapezoidCalculator trapez = new TrapezoidCalculator();
 
 
             //Assert
@@ -51,7 +51,7 @@ namespace Tests
             double time;
             double expected = 333333.3333;
             //Act
-            Trapezi trap = new Trapezi();
+            TrapezoidCalculator trap = new TrapezoidCalculator();
             double result = trap.Calculate(count, upLim, downLim, integral, out time);
 
             //Assert
@@ -68,7 +68,7 @@ namespace Tests
             double time;
             double expected = 333333.3333;
             //Act
-            Simpson simps = new Simpson();
+            SimpsonCalculator simps = new SimpsonCalculator();
             double result = simps.Calculate(count, upLim, downLim, integral, out time);
 
             //Assert
@@ -85,7 +85,7 @@ namespace Tests
             double time;
             double expected = 0.0;
             //Act
-            Pryamoyg pryam = new Pryamoyg();
+            RectCalculator pryam = new RectCalculator();
             double result = pryam.Calculate(count, upLim, downLim, integral, out time);
 
             //Assert

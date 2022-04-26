@@ -40,9 +40,9 @@ namespace WpfApp1
 
             int upLim = Convert.ToInt32(UpperLimitEditBox.Text);
             int lowLim = Convert.ToInt32(LowerLimitEditBox.Text);
-            ICalculator calcultGraph = new Simpson();
+            ICalculator calcultGraph = new SimpsonCalculator();
 
-            for (int i = 0; i < 1000; i++)
+            for (int i = 1; i < 1000; i++)
             {
                 double time = 0;
                 double result = calcultGraph.Calculate(i, upLim, lowLim, x => (2 * x) - Math.Log(2 * x) + 234, out time);
@@ -56,9 +56,9 @@ namespace WpfApp1
         {
             return METOD.SelectedIndex switch
             {
-                1 => new Trapezi(),
-                2 => new Simpson(),
-                0 => new Pryamoyg(),
+                1 => new TrapezoidCalculator(),
+                2 => new SimpsonCalculator(),
+                0 => new RectCalculator(),
                 _ => throw new NotImplementedException(),
             };
         }
