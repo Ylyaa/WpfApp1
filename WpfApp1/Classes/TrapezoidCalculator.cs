@@ -7,7 +7,7 @@ namespace WpfApp1.Classes
     public class TrapezoidCalculator : ICalculator
     {
 
-        public double Calculate(int splitCount, double upLim, double lowLim, Func<double, double> integral, out double time)
+        public double Calculate(int splitCount, double lowLim, double upLim, Func<double, double> integral, out double time)
         {
             time = 0;
             double h = (upLim - lowLim) / (double)splitCount; if (splitCount < 0) { throw new ArgumentException("count < 0"); }
