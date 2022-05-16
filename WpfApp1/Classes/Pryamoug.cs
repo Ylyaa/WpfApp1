@@ -11,6 +11,10 @@ namespace WpfApp1.Classes
     {
         public double Calculate(int splitCount, double upLim, double lowLim, Func<double, double> integral, out double time)
         {
+            if (splitCount <= 0)
+            {
+                throw new ArgumentException();
+            }
             Stopwatch sw = new Stopwatch();
             double h = (upLim - lowLim) / (double)splitCount;
             double sum = 0.0;

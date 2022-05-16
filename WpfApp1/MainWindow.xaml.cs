@@ -72,7 +72,7 @@ namespace WpfApp1
 
             ICalculator calcult = GetCalculator();
             double result = calcult.Calculate(splits, upLim, lowLim, x => (2 * x) - Math.Log(2 * x) +234, out time);
-            MessageBox.Show($"Результат вычислений = {result.ToString()}");
+            MessageBox.Show($"Результат вычислений = {result.ToString()}\n" + "time = " + Convert.ToString(time));
         }
 
 
